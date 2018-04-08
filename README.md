@@ -1,6 +1,8 @@
 # mitmweb docker image
 Alpine based docker image for the mitmproxy web interface mitmweb.
 
+Original work from [johnmccabe/mitmweb-docker](https://github.com/johnmccabe/mitmweb-docker) - forked to update versions and also build for arm.
+
 Get started quickly with defaults allowing docker to map the proxy and web interface ports.
 
     docker run --name mitmweb -d -P fopina/mitmweb
