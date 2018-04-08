@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "Build hook running"
+
+VERSION=$(cat VERSION)
+
+echo "Building for x84_64..."
+docker build -t $DOCKER_REPO:$VERSION -f Dockerfile .
+echo "Building for arm32v6..."
+docker build -t $DOCKER_REPO:$VERSION-arm --build-arg BASEIMG=arm32v6/python:3.6.4-alpine3.7 -f Dockerfile.arm32v6 .

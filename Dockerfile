@@ -1,9 +1,11 @@
-FROM python:3.6.5-alpine3.7 as builder
+# arm32v6/python:3.6.4-alpine3.7
+ARG BASEIMG=python:3.6.5-alpine3.7 
+FROM $BASEIMG as builder
 
 RUN apk add --no-cache build-base libffi-dev openssl-dev
 RUN pip wheel -w /dist https://github.com/mitmproxy/mitmproxy/archive/v3.0.4.tar.gz
 
-FROM python:3.6.5-alpine3.7
+FROM $BASEIMG
 
 # Expose ports
 #   - 8080: Default mitmproxy port
