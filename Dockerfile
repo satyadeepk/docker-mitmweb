@@ -3,7 +3,7 @@ ARG BASEIMG=python:3.6.5-alpine3.7
 FROM $BASEIMG as builder
 
 RUN apk add --no-cache build-base libffi-dev openssl-dev
-RUN pip wheel -w /dist https://github.com/mitmproxy/mitmproxy/archive/v3.0.4.tar.gz
+RUN pip wheel -w /dist https://github.com/mitmproxy/mitmproxy/archive/v4.0.4.tar.gz
 
 FROM $BASEIMG
 
@@ -16,7 +16,7 @@ EXPOSE 8081
 COPY --from=builder /dist /wheels
 
 RUN apk add --no-cache libffi libssl1.0
-RUN pip install --no-index --find-links=/wheels /wheels/mitmproxy-3.0.4-py3-none-any.whl
+RUN pip install --no-index --find-links=/wheels /wheels/mitmproxy-4.0.4-py3-none-any.whl
 
 # Location of the default mitmproxy CA files
 VOLUME [ "/ca" ]
