@@ -21,4 +21,4 @@ RUN pip install --no-index --find-links=/wheels /wheels/mitmproxy-4.0.3-py3-none
 # Location of the default mitmproxy CA files
 VOLUME [ "/ca" ]
 
-ENTRYPOINT [ "/usr/local/bin/mitmweb", "--set", "cadir=/ca", "--web-iface", "0.0.0.0", "--set", "block_global=False"]
+ENTRYPOINT [ "/usr/local/bin/mitmweb", "--set", "cadir=/ca", "--web-iface", "0.0.0.0", "--set", "block_global=false"]
